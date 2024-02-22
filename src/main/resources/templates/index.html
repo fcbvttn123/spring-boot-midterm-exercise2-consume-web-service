@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Welcome to Consuming RESTful!</h1>
+	<table th:if="${accountList != null}">
+		<tr>
+			<!-- <th>ID</th> -->
+			<th>Name</th>
+			<th>Gender</th>
+			<th>Subscribed</th>
+			<th>Country</th>
+			<th>Message</th>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr th:each="s : ${accountList}">
+			<!-- <td th:text="${s.id}">111222333</td> -->
+			<td th:text="${s.name}"></td>
+			<td th:text="${s.gender}"></td>
+			<td th:text="${s.subscribed}"></td>
+			<td th:text="${s.country}"></td>
+			<td th:text="${s.message}"></td>
+			<td><a th:href="@{/update/} + ${s.id}">Edit</a></td>
+			<td><a th:href="@{/delete/} + ${s.id}">Delete</a></td>
+		</tr>
+	</table>
+	<br>
+	<hr>
+	<br>
+	<a th:href="@{/blankForm}">Insert new Account!</a>
+</body>
+</html>

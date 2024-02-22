@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Form</h1>
+	
+	<div th:if="${account.id} == null">
+		<form method="post" th:action="@{/insert}" th:object="${account}">	
+			<input type="hidden" th:field="*{id}" /><br/>
+
+			<label for="name">Name:</label>
+    		<input type="text" th:field="*{name}" /><br/>
+    		
+    		<label>Gender:</label><br/>
+		    <input type="radio" th:field="*{gender}" value="Male"/><label for="male">Male</label>
+		    <input type="radio" th:field="*{gender}" value="Female"/><label for="female">Female</label>
+		    <input type="radio" th:field="*{gender}" value="Both"/><label for="both">Both</label><br/>
+		    
+		    <input type="checkbox" th:field="*{subscribed}"/><label for="subscribe">Subscribe</label><br/>
+		    
+		    <label for="country">Country:</label>
+		    <select th:field="*{country}">
+		        <option value="Canada">Canada</option>
+		        <option value="US">US</option>
+		        <option value="England">England</option>
+		    </select><br/>
+		    
+		    <label for="message">Message:</label><br/>
+    		<textarea th:field="*{message}"></textarea><br/>
+    		
+    		<button type="submit">Submit</button>
+		</form>
+	</div>
+	
+	<div th:if="${account.id} != null">
+		<form method="post" th:action="@{/update}" th:object="${account}">
+			<input type="hidden" th:field="*{id}" /><br/>
+		
+			<label for="name">Name:</label>
+    		<input type="text" th:field="*{name}" /><br/>
+    		
+    		<label>Gender:</label><br/>
+		    <input type="radio" th:field="*{gender}" value="Male"/><label for="male">Male</label>
+		    <input type="radio" th:field="*{gender}" value="Female"/><label for="female">Female</label>
+		    <input type="radio" th:field="*{gender}" value="Both"/><label for="both">Both</label><br/>
+		    
+		    <input type="checkbox" th:field="*{subscribed}"/><label for="subscribe">Subscribe</label><br/>
+		    
+		    <label for="country">Country:</label>
+		    <select th:field="*{country}">
+		        <option value="Canada">Canada</option>
+		        <option value="US">US</option>
+		        <option value="England">England</option>
+		    </select><br/>
+		    
+		    <label for="message">Message:</label><br/>
+    		<textarea th:field="*{message}"></textarea><br/>
+    		
+    		<button type="submit">Submit</button>
+		</form>
+	</div>
+</body>
+</html>
